@@ -1,6 +1,6 @@
 ## rewards calulator
 
-This tool allows to calculate BTC mining rewards out of given hashrate.
+This tool allows calculating BTC mining rewards out of a given hash rate.
 
 ### Source of network data: https://btc.com
 
