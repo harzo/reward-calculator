@@ -3,6 +3,7 @@ from datetime import datetime, date, timedelta
 from decimal import Decimal
 from typing import TypedDict, TypeVar, Generic, Optional, Tuple, List, NamedTuple, Dict
 
+import pytz
 from apiclient import APIClient, retry_request, endpoint, JsonResponseHandler, JsonRequestFormatter
 
 from common import DAY_IN_SECONDS, average
@@ -89,6 +90,7 @@ class BtcComData:
         total_blocks = 0
         for block in response['data']:
             block_dt = datetime.utcfromtimestamp(block['timestamp'])
+            block_dt = block_dt.replace(tzinfo=pytz.UTC)
             if dt <= block_dt <= dt + timedelta(seconds=delta):
                 rewards.append(block['reward_block'])
                 fees.append(block['reward_fees'])

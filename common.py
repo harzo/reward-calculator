@@ -22,3 +22,7 @@ def share_to_hashrate(share: int, _seconds: int) -> Decimal:
 
 def difficulty_to_hashrate(difficulty: Decimal, duration: int = AVERAGE_BLOCK_TIME_SECONDS):
     return difficulty * pow(2, 32) / duration
+
+
+def satoshi_to_btc(satoshi: Decimal) -> Decimal:
+    return round(satoshi / Decimal(1e8), 8)
