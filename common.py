@@ -1,13 +1,17 @@
 from decimal import Decimal
 
+import typing
+
 AVERAGE_BLOCK_TIME_SECONDS = 600
 AVERAGE_BLOCKS_COUNT_PER_DAY = 144
 
+DAY_IN_SECONDS = 24 * 60 * 60
 
-def average(l: list):
-    if len(l) == 0:
+
+def average(_list: typing.Collection):
+    if len(_list) == 0:
         return 0
-    return sum(l) / len(l)
+    return sum(_list) / len(_list)
 
 
 def share_to_hashrate(share: int, _seconds: int) -> Decimal:

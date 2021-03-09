@@ -1,5 +1,7 @@
 from datetime import datetime
 
+import pytz as pytz
+
 from common import difficulty_to_hashrate, AVERAGE_BLOCKS_COUNT_PER_DAY
 from decimal import Decimal
 from reward import calculate_fpps
@@ -16,6 +18,7 @@ parser.add_argument('-p', '--period', nargs='?', choices=['day', 'hour'], defaul
 
 if __name__ == '__main__':
     args = parser.parse_args()
+    args['datetime'].replace(tzinfo=pytz.UTC)
 
     difficulty = Decimal(0)
     reward_per_block = Decimal(0)

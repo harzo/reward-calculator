@@ -5,6 +5,8 @@ name = "pypi"
 
 [packages]
 pytest = "*"
+api-client = "*"
+pytz = "*"
 
 [dev-packages]
 
