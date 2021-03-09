@@ -31,8 +31,8 @@ daily_stats = [
 ]
 
 
-@pytest.mark.parametrize("difficulty,avg_blocks,total_blocks,reward_per_block,total_fees,shares, reward", daily_stats)
-def test_calculate_fpps(difficulty, avg_blocks, total_blocks, reward_per_block, total_fees, shares, reward):
+@pytest.mark.parametrize("difficulty,avg_blocks,total_blocks,reward_per_block,total_fees,shares,reward", daily_stats)
+def test_calculate_fpps_daily(difficulty, avg_blocks, total_blocks, reward_per_block, total_fees, shares, reward):
     day_in_seconds = 24 * 60 * 60
     hashrate = share_to_hashrate(shares, day_in_seconds)
     network_hashrate = difficulty_to_hashrate(Decimal(difficulty))
