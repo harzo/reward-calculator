@@ -8,18 +8,25 @@ This tool allows calculating BTC mining rewards out of a given hash rate.
 - PPS
 - FPPS
 
+### Dependencies
+
+- Python >= 3.7
+- [Pipenv](https://pypi.org/project/pipenv/)
+
 ### Usage
 
-```
-reward-calculator hashrate datetime [-m [{fpps,pps}]] [-p [{day,hour}]]
-```
+Go to the project folder (`cd reward-calculator`) and run:
+- `pipenv install`
+- `pipenv shell`
+- `python . hashrate datetime [-m [{fpps,pps}]] [-p [{day,hour}]]`
+
 
 #### Example
 
 ```
-reward-calculator 8644948859909036.563 '2021-03-09'
-reward-calculator 8644948859909036.563 '2021-03-09 10:00:00' -p hour
-reward-calculator 8644948859909036.563 '2021-03-09 10:00:00' -p hour -m pps
+python . 8644948859909036.563 '2021-03-09'
+python . 8644948859909036.563 '2021-03-09 10:00:00' -p hour
+python . 8644948859909036.563 '2021-03-09 10:00:00' -p hour -m pps
 ```
 
 #### Arguments
