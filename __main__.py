@@ -1,12 +1,12 @@
-from datetime import datetime
-
+import argparse
+import logging
 import pytz as pytz
+import sys
 
 from btccom import BtcComData
 from common import difficulty_to_hashrate, AVERAGE_BLOCKS_COUNT_PER_DAY, DAY_IN_SECONDS, satoshi_to_btc
+from datetime import datetime
 from reward import calculate_fpps
-
-import argparse
 
 parser = argparse.ArgumentParser(prog='reward-calculator', description='Rewards Calculator')
 parser.add_argument('hashrate', nargs='?', type=float, help='Mining hashrate (H/s) used to calculate reward')
@@ -16,8 +16,16 @@ parser.add_argument('-m', '--method', nargs='?', choices=['fpps', 'pps'], defaul
 parser.add_argument('-p', '--period', nargs='?', choices=['day', 'hour'], default='day',
                     help='Reward calculation period (mining duration from the start)')
 
+logging.basicConfig(format='reward-calculator: %(levelname)s: %(message)s', level=logging.DEBUG)
+
 if __name__ == '__main__':
     args = parser.parse_args()
+    if not args.hashrate:
+        logging.error(f'missing `hashrate` argument')
+        sys.exit()
+    elif not args.datetime:
+        logging.error(f'missing `datetime` argument')
+        sys.exit()
 
     hashrate = args.hashrate
     dt = args.datetime
