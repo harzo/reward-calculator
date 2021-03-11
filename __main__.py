@@ -44,8 +44,8 @@ if __name__ == '__main__':
 
     print(f'Difficulty: {difficulty} ({difficulty / pow(10, 12)} x 10^12)')
     print(f'Network hashrate: {network_hashrate} ({network_hashrate / pow(10, 18)} EH)')
-    print(f'Coinbase rewards: {satoshi_to_btc(block_rewards)} from {AVERAGE_BLOCKS_COUNT_PER_DAY} blocks')
-    print(f'TX Fees: {satoshi_to_btc(total_fees)} from {total_blocks} blocks')
+    print(f'Average coinbase rewards: {satoshi_to_btc(block_rewards)} from {AVERAGE_BLOCKS_COUNT_PER_DAY} blocks')
+    print(f'Total txs fees: {satoshi_to_btc(total_fees)} from {total_blocks} blocks')
 
     print(f'\nMining stats:')
     print(f'- Hashrate: {hashrate} ({hashrate / pow(10, 15)} PH)')
